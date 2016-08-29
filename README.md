@@ -1,15 +1,39 @@
-# GDB
+# CS 173 - GDB Instructional Plan
 
 ## Motivation
 
-## Prerequisites
+* What will you do if your program has errors?
+* Is there a systematic way to look for program errors?
+
+## Objectives
+
+* Define the following terms: debugging, debugger, breakpoint, stacktrace.
+* Learn how to use a debugger through a hands-on exercise.
+* Understand the importance of symbol tables in debugging programs.
+* Debug a C program and make it work.
+
+## Review of Prerequisite
+
+* Compiling a C program using GCC
+  ```bash
+  gcc -o program program.c
+  ```
+
+## Information and Example
+
+* Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.
+* There are systematic ways of debugging a program. One of which is by using a debugger.
+* A debugger is a computer program that is used to debug other programs.
+* Using a debugger is helpful in finding the defects of a program.
+
+### Prerequisites
 
 * Unix Machines are recommended but not required.
 * An ANSI-compliant C compiler.
 * 115 MB of free disk space for building GDB
 * 20 MB of free disk space for installing GDB
 
-## Installation
+### Installation
 
 1. Check if your system has GDB installed:
   ```bash
@@ -23,9 +47,9 @@
   ```
   Valgrind is not yet required, but we will use it in the next session.
 
-## Usage
+### Usage
 
-### Symbol Tables
+#### Symbol Tables
 A Debugging Symbol Table maps instructions in the compiled binary program to their corresponding variable, function, or line in the source code. This mapping could be something like:
 
 * Program instruction ⇒ item name, item type, original file, line number defined.
@@ -34,7 +58,7 @@ Symbol tables may be embedded into the program or stored as a separate file. So 
 
 We can infer the following facts about symbol tables:
 
-* A symbol table works for a particular version of the program – if the program changes, a new table must be created.
+* A symbol table works for a particular version of the program - if the program changes, a new table must be created.
 * Debug builds are often larger and slower than retail (non-debug) builds; debug builds contain the symbol table and other ancillary information.
 * If you wish to debug a binary program you did not compile yourself, you must get the symbol tables from the author.
 
@@ -52,7 +76,7 @@ gcc -g hello.cc -o hello
 
 Note that the ```-g``` option is only available in the GCC compiler. This option enables the use of extra debugging information that only GDB can use.
 
-### Commands
+#### Commands
 
 GDB offers a big list of commands, however the following commands are the ones used most frequently:
 
@@ -76,10 +100,35 @@ GDB offers a big list of commands, however the following commands are the ones u
 * **d** - Goes down a level in the stack
 * **q** - Quits gdb
 
-## References
+#### Debuggers for Other Languages
+
+* **jdb** - Java
+* **pdb** - Python
+* ```ruby -r debug``` - Ruby
+* **phpdbg** - PHP
+
+### References
 
 * GDB Prerequisites and Installation:
   * http://www.tutorialspoint.com/gnu_debugger/installing_gdb.htm
 * Debugging GCC programs with GDB:
   * http://www.tutorialspoint.com/gnu_debugger/gdb_debugging_symbols.htm
   * http://linux.die.net/man/1/gcc
+* Tutorial with examples:
+  * https://courses.cs.washington.edu/courses/cse303/04au/Homework/gdb/
+  * https://inst.eecs.berkeley.edu/~cs61c/fa14/labs/03/
+
+## Practice and Feedback
+
+### Exercise 1: In class
+
+### Exercises 2-5: Homework
+
+## Summary
+
+* Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.
+* There are systematic ways of debugging a program. One of which is by using a debugger.
+* A debugger is a computer program that is used to debug other programs.
+* Using a debugger is helpful in finding the defects of a program.
+* Learning how to use a debugger to efficiently debug programs takes time and practice.
+* There are different compilers for different languages.
